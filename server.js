@@ -1,4 +1,4 @@
-require("dotenv").config();
+
 var express = require("express");
 var exphbs = require("express-handlebars");
 var mongoose = require("mongoose");
@@ -20,8 +20,8 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Routes
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+require("./apiRoutes")(app);
+require("./htmlRoutes")(app);
 
 // require models
 var db = require("./models");
