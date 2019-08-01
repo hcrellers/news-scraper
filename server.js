@@ -2,8 +2,8 @@
 var express = require("express");
 var exphbs = require("express-handlebars");
 var mongoose = require("mongoose");
-var cheerio = require("cheerio");
-var axios = require("axios");
+// var cheerio = require("cheerio");
+// var axios = require("axios");
 
 // initialize express
 var app = express();
@@ -20,11 +20,13 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Routes
-require("./apiRoutes")(app);
-require("./htmlRoutes")(app);
+require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
 
 // require models
 var db = require("./models");
+
+app.use(db);
 
 // connect mongo db
 // This code should connect mongoose to your remote mongolab database if deployed, 
